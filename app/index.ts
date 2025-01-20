@@ -67,6 +67,7 @@ function initTourElemListener(tourWrap) {
       const dataIndex = realTarget.getAttribute('data-tour-item-index');
       openModal('order', Number(dataIndex));
     }
+    
   });
 }
 

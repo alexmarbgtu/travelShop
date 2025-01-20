@@ -13,19 +13,28 @@ export function openModal(type: string, i: number): void {
     // let modalInfo = {};
     switch (type) {
         case "order":
+            const modalId: string = 'tour-modal';
             const modalTemplate = `
-      <div> 
-      <p data-moda-id="tour-modal" class="close-modal">x</p>
-      <p>${data.name}</p>
-      <p>${data.description}</p>
-       
-       <div data-tour-id=${tourId} class="ticket-submit">
-       <a href="/ticket.html">Купить билет</a>
-</div>
-     </div>
+            <div> 
+                <p data-moda-id="${modalId}" class="close-modal">x</p>
+                <p>${data.name}</p>
+                <p>${data.description}</p>
+                
+                <div data-tour-id=${tourId} class="ticket-submit">
+                    <a href="/ticket.html">Купить билет</a>
+                </div>
+            </div>
   `
-            const modal = new Modal('tour-modal');
+            const modal = new Modal(modalId)
             modal.open(modalTemplate);
+            const elClickCloseModal = document.querySelector(
+				'p.close-modal[data-moda-id="' + modalId + '"]'
+            );
+            if (elClickCloseModal) {
+                elClickCloseModal.addEventListener('click', () => {
+                    Modal.removeById(modalId);
+                });
+            }
             break;
     }
 }

@@ -32,8 +32,8 @@ export function initTicketInfo(ticket: TicketType | IVipTicket): void {
 	targetElement.innerHTML = ticketElemTemplate;
 }
 
-function initUserData(): void {
-	const userInfo = document.querySelectorAll('.user-info > p');
+function initUserData() {
+	const userInfo: NodeListOf<HTMLElement> = document.querySelectorAll('.user-info > p');
 	let userInfoObj;
 	userInfo.forEach(el => {
 		const inputDataName: string = el.getAttribute('data-name');
