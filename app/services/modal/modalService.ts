@@ -14,20 +14,20 @@ export function openModal(type: string, i: number): void {
     switch (type) {
         case "order":
             const modalId: string = 'tour-modal';
-            const modalTemplate = `
-            <div> 
-                <p data-moda-id="${modalId}" class="close-modal">x</p>
-                <p>${data.name}</p>
-                <p>${data.description}</p>
-                
-                <div data-tour-id=${tourId} class="ticket-submit">
-                    <a href="/ticket.html">Купить билет</a>
+            const modalTemplate: string = `
+                <div> 
+                    <p data-moda-id="${modalId}" class="close-modal">x</p>
+                    <p>${data.name}</p>
+                    <p>${data.description}</p>
+                    
+                    <div data-tour-id=${tourId} class="ticket-submit">
+                        <a href="/ticket.html">Купить билет</a>
+                    </div>
                 </div>
-            </div>
-  `
-            const modal = new Modal(modalId)
+            `;
+            const modal: Modal = new Modal(modalId);
             modal.open(modalTemplate);
-            const elClickCloseModal = document.querySelector(
+            const elClickCloseModal: Element = document.querySelector(
 				'p.close-modal[data-moda-id="' + modalId + '"]'
             );
             if (elClickCloseModal) {

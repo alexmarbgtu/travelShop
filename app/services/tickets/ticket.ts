@@ -9,7 +9,7 @@ import { postTicketData } from '@rest/tickets'
 let ticketPostInstance;
 
 export function initTicketInfo(ticket: TicketType | IVipTicket): void {
-	const targetElement = document.querySelector('.ticket-info');
+	const targetElement: Element = document.querySelector('.ticket-info');
 
 	const ticketDescription: string = ticket?.description;
 	const ticketOperator: string = ticket?.tourOperator;
@@ -38,7 +38,7 @@ function initUserData() {
 	userInfo.forEach(el => {
 		const inputDataName: string = el.getAttribute('data-name');
 		if (inputDataName) {
-			const inputElems = el.querySelector('input');
+			const inputElems: HTMLInputElement = el.querySelector('input');
 			userInfoObj[inputDataName] = inputElems.value;
 		}
 	})
@@ -48,7 +48,7 @@ function initUserData() {
 }
 
 function initPostData(data): void {
-	initUserData()
+	initUserData();
 	postTicketData(data).then(data => {
 		if (data.success) {
 		}
