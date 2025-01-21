@@ -56,7 +56,7 @@ function initPostData(data): void {
 }
 
 export function registerConfirmButton(): void {
-	const targetEl = document.getElementById('accept-order-button')
+	const targetEl: Element = document.getElementById('accept-order-button');
 	if (targetEl) {
 		targetEl.addEventListener('click', () => {
 			initPostData(ticketPostInstance);
